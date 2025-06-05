@@ -1,20 +1,20 @@
-import React from "react";
-import { Search } from "lucide-react"; 
-import Meetuplogo from "../../assets/images/Meetup-logo.png";
+import { Search } from 'lucide-react'
+import Meetuplogo from '../../assets/images/Meetup-logo.png'
+import { Link } from 'react-router-dom'
 
 const Header = () => {
   return (
     <header className="flex items-center justify-between px-6 py-4 shadow-md bg-white">
-      
       <div className="flex items-center">
-        <img
-          className="h-20 w-auto object-contain"
-          src={Meetuplogo}
-          alt="Meetup Logo"
-        />
+        <Link to="/">
+          <img
+            className="h-20 w-auto object-contain"
+            src={Meetuplogo}
+            alt="Meetup Logo"
+          />
+        </Link>
       </div>
 
-      
       <div className="relative w-64">
         <span className="absolute inset-y-0 left-3 flex items-center text-gray-500">
           <Search size={18} />
@@ -26,7 +26,7 @@ const Header = () => {
         />
       </div>
     </header>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

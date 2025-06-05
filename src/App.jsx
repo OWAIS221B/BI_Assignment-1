@@ -12,17 +12,14 @@ function App() {
       children: [
         { index: true, element: <Home /> },
         {
-          path: '/:id',
+          path: 'events/:id', 
           element: <EventDetails />,
         },
       ],
     },
   ])
-  return (
-    <>
-      <RouterProvider router={router} />
-    </>
-  )
+
+  return <RouterProvider router={router} />
 }
 
 export default App
