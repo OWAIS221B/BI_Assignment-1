@@ -12,7 +12,7 @@ function App() {
       children: [
         { index: true, element: <Home /> },
         {
-          path: 'events/:id', 
+          path: '/events/:id', 
           element: <EventDetails />,
         },
       ],

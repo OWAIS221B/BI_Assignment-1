@@ -3,13 +3,13 @@ import useFetch from '../../useFetch'
 
 const EventDetails = () => {
   const { id } = useParams()
+  
 
-  const {
-    data: event,
-    loading,
-    error,
-  } = useFetch(`http://localhost:3000/events/${id}`)
+  const { data, loading, error } = useFetch(`http://localhost:3000/events`)
 
+  // console.log(data)
+  const event = data?.find((eve) => eve._id == id)
+  
   if (loading)
     return <p className="text-center text-gray-500 mt-20">Loading event...</p>
 
@@ -25,7 +25,6 @@ const EventDetails = () => {
 
   return (
     <div className="px-4 md:px-10 py-10 max-w-6xl mx-auto text-gray-800">
-      {/* Title and Organizer */}
       <div className="mb-6">
         <h1 className="text-4xl font-bold text-black">{event.title}</h1>
         <p className="text-sm text-gray-500 mt-1">
@@ -34,7 +33,6 @@ const EventDetails = () => {
         </p>
       </div>
 
-      {/* Image and Info */}
       <div className="grid md:grid-cols-3 gap-6 mb-10">
         <div className="md:col-span-2">
           <img
@@ -63,7 +61,6 @@ const EventDetails = () => {
         </div>
       </div>
 
-      {/* Details */}
       <section className="mb-10">
         <h2 className="text-2xl font-semibold text-black mb-2">
           About the Event
@@ -71,7 +68,6 @@ const EventDetails = () => {
         <p className="text-gray-700 leading-relaxed">{event.details}</p>
       </section>
 
-      {/* Additional Info */}
       <section className="mb-10 grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
           <h3 className="text-lg font-semibold text-black mb-1">Dress Code</h3>
@@ -85,7 +81,6 @@ const EventDetails = () => {
         </div>
       </section>
 
-      {/* Speakers */}
       <section className="mb-10">
         <h2 className="text-2xl font-semibold text-black mb-4">Speakers</h2>
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5">
@@ -108,7 +103,6 @@ const EventDetails = () => {
         </div>
       </section>
 
-      {/* Tags and RSVP */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div className="flex flex-wrap gap-2">
           {event.tags?.map((tag, index) => (

@@ -6,6 +6,7 @@ import useFetch from '../../useFetch'
 
 const Home = () => {
   const [selectedType, setSelectedType] = useState('both')
+  
 
   const {
     data: events,
